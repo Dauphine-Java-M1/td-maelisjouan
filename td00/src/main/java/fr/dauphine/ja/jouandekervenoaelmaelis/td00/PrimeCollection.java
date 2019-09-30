@@ -66,7 +66,7 @@ public class PrimeCollection
     {
     	PrimeCollection p = new PrimeCollection();
     	System.out.println( "La liste de nombres générés aléatoirement est la suivante :");
-    	p.initRandom(100, 1, 1000);
+    	p.initRandom(100, 1, 2000);
     	System.out.println( "\nLes nombres premiers de la liste sont :");
     	p.printPrimes();
     }
