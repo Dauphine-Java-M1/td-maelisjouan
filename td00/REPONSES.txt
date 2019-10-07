@@ -85,4 +85,8 @@ Les fichiers .class ou les archives générées ne sont pas des fichiers à ajou
 10) git diff HEAD HEAD^
 
 TD GIT - exercice 2
-5) 
+5) Le git push provoque une erreur.
+
+6) Le fichier REPONSES.txt contient à la fois la modification ajoutée au début du fichier et la modification ajoutée à la fin du fichier.
+
+7) Si les modifications étaient sur la même ligne, le git pull n’aurait pas pu effectuer la fusion entre le fichier REPONSES.txt sur github et le fichier en local.
