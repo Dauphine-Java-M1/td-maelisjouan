@@ -1,0 +1,87 @@
+JOUAN DE KERVENOAEL Maelis
+
+
+TD MAVEN - exercice 1
+4) La commande pour afficher la version de maven est mvn -v ou mvn --version.
+Sur la machine utilisée la version de Maven est 3.6.0.
+
+5) groupID = identifiant du groupe du projet - architecture du projet au sein de l’artifactID.
+En C si deux librairies ont le même nom, il y a conflit lorsqu'on souhaite les utiliser en même temps. Ce problème de nommage a été résolu en java avec des noms absolus (ils contiennent suffisamment d'information pour pouvoir différencier deux classes ayant le même nom).
+artifactID = identifiant du projet. Spécifie le nom du projet
+
+6) Le répertoire target contient les fichiers en bytecode.
+
+7) cd td00/src/main/java/fr/dauphine/ja/jouandekervenoaelmaelis/td00
+nano App.java
+modification de "Hello world!" par "Bonjour!" 
+CTRL+X
+cd /users/jouama16/javaavance/td00
+mvn compile
+java -cp target/classes fr.dauphine.ja.jouandekervenoaelmaelis.td00.App
+
+8) Le class path est pour spécifier l'endroit où sont situés les fichiers bytecode du projet (fichiers .class ?)
+Si il n'y a pas -cp, la commande java recherche les fichiers bytecodes à la localisation par défaut.
+
+9) Le fichier POM.xml définit la configuration de notre structure maven.
+la racine est project
+groupID, version, dependencies et plugins sont les suivants de la racine
+
+13) maven.compiler.source = version pour compiler les fichiers source du projet
+maven.compiler.target = version pour compiler les fichiers en bytecode du projet (compilation vers une MV)
+--> version 1.8
+
+
+TD MAVEN - exercice 2
+1) cd javaavance/td00/
+mvn package
+java -cp target/td00-1.0-SNAPSHOT.jar fr.dauphine.ja.jouandekervenoaelmaelis.td00.App
+
+La commande java -jar target/td00-1.0-SNAPSHOT.jar ne permet pas d’exécuter le fichier JAR. Il faut en effet spécifier le nom de la classe qui contient le main (ou bien utiliser un plugin qui écrit le manifest)
+
+3) ajout du code pour le plugin générant le fichier Manifest  dans POM.xml
+mvn package
+java -jar target/td00-1.0-SNAPSHOT.jar
+
+4) Ca fonctionne !
+
+Différence maven compile et maven package :
+maven compile = compile les fichiers sources en bytecode dans le dossier target
+java = execution du bytecode
+maven package = fais une archive zip où il zip tous les fichiers du répertoire target
+
+
+TD MAVEN - exercice 3
+ATTENTION : toujours vérifier que le fichier POM.xml est à jour.
+3) saisie automatique : sysout + CTRL + SPACE = System.out.println();
+
+4) toStr + CTRL + SPACE = menu de saisie automatique s’ouvre et propose l’écriture d’une méthode toStr() de type void ou bien de réécrire la méthode toString() de la classe Object.
+
+5) main + CTRL + SPACE = menu de saisie automatique s’ouvre et propose de générer le main de la classe ou bien d’importer une classe comme MarginBorder.
+
+6) int toto;
+get + CTRL + SPACE = menu de saisie automatique s’ouvre et propose de générer le getter de la variable toto et d’autres choses. De même pour set avec le setter de la variable toto.
+
+7) Sur MAC : CMD + SHIFT + R = recherche le champ sélectionné dans le dossier où sont situés les fichiers sources (i.e. /src/test/java/fr/dauphine/ja/jouandekervenoaelmaelis/td00)
+
+8) 
+
+
+TD MAVEN - exercice 4
+1) Dans le menu de gauche, clic droit sur nom de la classe. —> Refactor —> Rename
+
+6) Modification dans POM.xml du nom de la classe dans le plugin
+
+
+TD GIT - exercice 1
+1) git init —> création d’un dépôt vide
+
+2) Les fichiers qui doivent faire partie des sources du projet td00 sont les fichiers sources .java, les fichiers de tests unitaires et le pom.xml.
+Les fichiers .class ou les archives générées ne sont pas des fichiers à ajouter car ils peuvent être reconstruits à partir des fichiers sources.
+
+3) git add pour ajouter un fichier auquel on a apporté une modification —> git commit
+
+5) git diff affiche les modifications par fichiers entre la précédente version enregistrée git et la version actuelle
+
+10) git diff HEAD HEAD^
+
+TD GIT - exercice 2
