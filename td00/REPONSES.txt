@@ -85,3 +85,4 @@ Les fichiers .class ou les archives générées ne sont pas des fichiers à ajou
 10) git diff HEAD HEAD^
 
 TD GIT - exercice 2
+5) 
