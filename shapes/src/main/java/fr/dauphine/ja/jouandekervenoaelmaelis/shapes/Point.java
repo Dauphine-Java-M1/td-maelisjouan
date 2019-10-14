@@ -1,5 +1,7 @@
 package fr.dauphine.ja.jouandekervenoaelmaelis.shapes;
 
+import java.util.ArrayList;
+
 /**
  * TD1
  * class Point
@@ -54,12 +56,34 @@ public class Point
 		return ("("+this.x+", "+this.y+")");
 	}
 	
+	public boolean isSameAs(Point p){
+		if(this.x == p.getX() && this.y == p.getY())
+			return true;
+		return false;
+	}
+	
+	@Override
+	public boolean equals(Object o){
+		if (! (o instanceof Point))
+			return false;
+		Point p = (Point) o;
+		return this.isSameAs(p);
+	}
+	
+	
     public static void main( String[] args )
     {
-    	Point p = new Point();
-    	Point p1 = new Point(1.0, 0.3);
-    	System.out.println(p);
-    	System.out.println(p1);
-    	System.out.println(count);
+    	Point p1 = new Point(1.0, 2.0);
+    	Point p2 = p1;
+    	Point p3 = new Point(1.0, 2.0);
+    	System.out.println(p1==p2);
+    	System.out.println(p1==p3);
+    	System.out.println(p1.isSameAs(p3));
+    	
+    	ArrayList<Point> list = new ArrayList<>();
+    	list.add(p1);
+    	System.out.println(list.indexOf(p2));
+    	System.out.println(list.indexOf(p3));
+    	
     }
 }
