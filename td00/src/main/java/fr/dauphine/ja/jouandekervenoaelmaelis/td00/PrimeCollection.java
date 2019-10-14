@@ -35,7 +35,7 @@ public class PrimeCollection
 		}
 	}
 	
-	private static boolean isPrime(int p) {
+	protected static boolean isPrime(int p) {
 		/**
 		 * Test if an integer is a prime number.
 		 * @return - true when p is a prime number, false otherwise.
