@@ -1,63 +1,33 @@
 package fr.dauphine.ja.jouandekervenoaelmaelis.shapes;
 
+import java.util.LinkedList;
+
 public class BrokenLine {
 	
-	private int size;
-	private Point table[];
-	private int index;
+	private LinkedList<Point> table;
 
 	
-	public BrokenLine(int size){
-		this.size = size;
-		this.table = new Point[this.size];
-		this.index = 0;
+	public BrokenLine(){
+		table = new LinkedList();
 	}
 	
-	public Point[] getTable(){
+	public LinkedList <Point> getTable(){
 		return this.table;
 	}
 	
-	public int getSize(){
-		return this.size;
-	}
-	
 	
 	/**
-	 * Add a point to a BrokenLine
+	 * 
 	 * @param p
-	 * @return -1 when the table is full, 0 otherwise.
 	 */
-	public int add(Point p){
-		if (this.index > this.size)
-			return -1;
-		this.table[index] = p;
-		this.index = this.index+1;
-		return 0;
+	public void add(Point p){
+		table.add(p);
 	}
 	
-	
-	/**
-	 * 
-	 * @return the number of points that can be added to the BrokenLine
-	 */
-	public int pointCapacity(){
-		return this.size-this.index;
-	}
-	
-	/**
-	 * 
-	 * @return the number of points on the BrokenLine
-	 */
-	public int nbPoints(){
-		return this.index;
-	}
+
 	
 	public boolean contains(Point p){
-		for(Point pt : this.table){
-			if(pt.equals(p))
-				return true;
-		}
-		return false;
+		return table.contains(p);
 	}
 	
 	@Override

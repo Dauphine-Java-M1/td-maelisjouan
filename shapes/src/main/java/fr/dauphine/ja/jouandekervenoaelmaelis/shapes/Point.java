@@ -87,12 +87,9 @@ public class Point
     	System.out.println(list.indexOf(p2));
     	System.out.println(list.indexOf(p3));
     	
-    	BrokenLine b = new BrokenLine(3);
+    	BrokenLine b = new BrokenLine();
     	b.add(p1);
-    	b.add(null);
+    	System.out.println(b.contains(p3));
     	System.out.println(b);
-    	System.out.println(b.pointCapacity());
-    	System.out.println(b.nbPoints());
-    	System.out.println(b.contains(null));
     }
 }
