@@ -76,6 +76,8 @@ public class Point
     	Point p1 = new Point(1.0, 2.0);
     	Point p2 = p1;
     	Point p3 = new Point(1.0, 2.0);
+    	
+    	System.out.println(count);
     	System.out.println(p1==p2);
     	System.out.println(p1==p3);
     	System.out.println(p1.isSameAs(p3));
@@ -85,5 +87,12 @@ public class Point
     	System.out.println(list.indexOf(p2));
     	System.out.println(list.indexOf(p3));
     	
+    	BrokenLine b = new BrokenLine(3);
+    	b.add(p1);
+    	b.add(null);
+    	System.out.println(b);
+    	System.out.println(b.pointCapacity());
+    	System.out.println(b.nbPoints());
+    	System.out.println(b.contains(null));
     }
 }
