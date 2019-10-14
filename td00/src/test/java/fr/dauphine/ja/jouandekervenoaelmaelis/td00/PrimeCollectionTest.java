@@ -36,6 +36,7 @@ public class PrimeCollectionTest
         assertTrue( true );
     }
     
+    
     public void test0IsPrime(){
     	assertTrue(PrimeCollection.isPrime(0));
     }
