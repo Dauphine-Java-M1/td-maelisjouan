@@ -89,7 +89,9 @@ public class Point
     	
     	BrokenLine b = new BrokenLine();
     	b.add(p1);
+    	b.add(p3);
     	System.out.println(b.contains(p3));
+    	System.out.println(b.nbPoints());
     	System.out.println(b);
     }
 }
