@@ -1,0 +1,54 @@
+JOUAN DE KERVENOAEL Maelis
+
+TD1-REVISIONS
+
+EXERCICE 1
+1) Il existe un constructeur par défaut qui ne prend pas de paramètres et attribue la valeur 0 aux champs x et y du Point p.
+
+2) Les champs x et y ne sont pas visibles pour la classe PointTest. Il faut alors créer des accesseurs dans la classe point pour x et pour y.
+
+3) Il faut toujours que les champs d’une classe soient privés pour n’être accessibles que par les méthodes de sa classe et ainsi ne pas être modifiés par un autre objet.
+
+4) Un accesseur est une méthode get qui permet de récupérer la valeur d’une variable privée.
+
+5) Le constructeur par défaut n’existe plus. Il faut donc ré-implémenter Point() ou bien ajouter des valeurs lors de l’instanciation de p.
+
+6) Le constructeur n’attribue plus les valeurs du point à x et y. Il faut remplacer x = x et y = y par this.x = x et this.y = y.
+
+7) Il suffit d’ajouter une variable static count et de l’incrémenter à chaque appel du constructeur.
+
+8) Le compilateur sait quel constructeur appeler en fonction du nombre et du type des arguments.
+
+
+EXERCICE 2
+1) Ce code affiche true puis false. En effet p1 et p2 sont le même objet en mémoire et donc l’opérateur booléen == renvoie true. En revanche p1 et p3 ont les mêmes valeurs x et y mais sont deux objets distincts donc l’opérateur == renvoie false.
+
+3) L’index de p2 renvoyé est l’index 0 de la liste (en effet p2 et p1 pointent sur le même objet). En revanche l’index de p3 renvoyé est -1 : index qui n’existe pas. La méthode indexOf utilise la méthode equals qui par défaut utilise l’opérateur booléen pour comparer deux objets. Elle renvoie l’indice si l’objet est trouvé dans la liste et -1 sinon. Il faut donc redéfinir la méthode equals.
+
+
+EXERCICE 3
+2) Si le tableau est rempli complètement par des Points, la variable index pointe sur un élément inexistant du tableau (risque de provoquer une erreur). Pour éviter cela on peut demander à la méthode add de retourner un booléen selon le succès ou l’échec de l’ajout d’un point à une ligne brisée.
+
+5) Une NullPointerException est générée car un objet ne peut pas être null.
+
+6) pointCapacity() n’est plus utile car la capacité d’une LinkedList n’est pas finie. nbPoints() devient la taille de la liste et contains() n’a pas besoin d’être implémentée puisque LinkedList contient déjà une méthode contains.
+
+
+EXERCICE 4
+1) La signature de cette fonction peut être void ou Point :
+- si c’est void alors on modifie l’instance qui appelle la méthode
+- si c’est Point on retourne un nouveau point.
+
+5) Le problème est que c2 n’est pas modifié par la méthode translate dans le cas ou celle-ci retourne un nouveau Circle. Pour éviter ce problème on peut faire c2 = c2.translate(1, 1).
+
+6) Le code ne modifie pas le centre du cercle dans le cas où les méthodes translate retournent un nouvel objet (il faut alors créer une fonction setCenter si on souhaite modifier la valeur du centre du cercle).
+Si les méthodes translate ne renvoient pas de nouveaux objets, alors l’objet est modifié lorsqu’on fait appel à celle-ci. Dans ce cas le cercle créé et le cercle affiché ne sont pas les mêmes.
+
+9) On en fait une méthode statique car cette fonction n’est pas propre à un Circle donné. On ne souhaite donc pas appeler la fonction par un objet Circle.
+
+
+EXERCICE 5
+1) Un anneau et un cercle n’ont pas les mêmes propriétés donc l’héritage n’est pas très intéressant ici.
+
+4) Il faut redéfinir la méthode toString afin d’afficher les éléments souhaités.
+

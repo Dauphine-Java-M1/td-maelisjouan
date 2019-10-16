@@ -17,7 +17,7 @@ public class Circle {
 	
 	@Override
 	public String toString(){
-		return ("(" + this.center + ", " + this.radius + ")" + " - surface : " + this.surface());
+		return ("center : " + this.center + ", radius : " + this.radius + ", surface : " + this.surface());
 	}
 	
 	@Override
@@ -61,6 +61,10 @@ public class Circle {
 			}
 		}
 		return false;
+	}
+	
+	public double getRadius(){
+		return this.radius;
 	}
 	
 }

@@ -130,5 +130,11 @@ public class Point
     	System.out.println(Circle.contains(new Point(n1, n1), circles));
     	circles[1] = c;
     	System.out.println(Circle.contains(new Point(n1, n1), circles));
+    	
+    	Ring r = new Ring(new Point(), 1.0, 0.5);
+    	Ring r1 = new Ring(new Point(), 1.0, 0.5);
+    	System.out.println(r.equals(r1));
+    	System.out.println(r);
+    	System.out.println(r.contains(new Point(n1, n1)));
     }
 }
