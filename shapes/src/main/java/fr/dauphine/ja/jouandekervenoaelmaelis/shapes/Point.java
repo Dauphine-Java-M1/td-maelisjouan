@@ -70,6 +70,21 @@ public class Point
 		return this.isSameAs(p);
 	}
 	
+	/*
+	public void translate(Point dx, Point dy){
+		double x1 = dx.getX();
+		double x2 = dy.getX();
+		double y1 = dx.getY();
+		double y2 = dy.getY();
+		this.x += x2-x1;
+		this.y += y2-y1;
+	}*/
+	
+	public Point translate(double dx, double dy){
+		
+		return new Point(this.x+dx, this.y+dy);
+	}
+	
 	
     public static void main( String[] args )
     {
@@ -93,5 +108,27 @@ public class Point
     	System.out.println(b.contains(p3));
     	System.out.println(b.nbPoints());
     	System.out.println(b);
+    	
+    	System.out.println(p1.translate(2.0, 3.0));
+    	
+    	Circle c = new Circle(p3, 2.0);
+    	Circle c2 = new Circle(p3, 3.0);
+    			
+    	c2 = c2.translate(2.0, 3.0);
+    	System.out.println(c + " " + c2);
+    	
+    	c.setCenter(c.getCenter().translate(2.0, 3.0));
+    	System.out.println(c);
+    	
+    	Circle c1 = new Circle();
+    	double n1 = Math.floor(100000*Math.sqrt(2)/2)/100000;
+    	double n2 = Math.ceil(100000*Math.sqrt(2)/2)/100000;
+    	System.out.println(n1 + " " + n2);
+    	System.out.println(c1.contains(new Point(n1, n1)));
+    	System.out.println(c1.contains(new Point(n2, n2)));
+    	Circle[] circles = {c2, c1};
+    	System.out.println(Circle.contains(new Point(n1, n1), circles));
+    	circles[1] = c;
+    	System.out.println(Circle.contains(new Point(n1, n1), circles));
     }
 }
