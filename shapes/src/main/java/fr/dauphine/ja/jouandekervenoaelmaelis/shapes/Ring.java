@@ -2,7 +2,7 @@ package fr.dauphine.ja.jouandekervenoaelmaelis.shapes;
 
 import java.lang.IllegalArgumentException;
 
-public class Ring {
+public class Ring extends Shape {
 	
 	private Circle circ;
 	private double internRadius;
@@ -49,5 +49,13 @@ public class Ring {
 				return true;
 		}
 		return false;
+	}
+
+	public Circle getCirc() {
+		return this.circ;
+	}
+	
+	public double getInternRadius(){
+		return this.internRadius;
 	}
 }

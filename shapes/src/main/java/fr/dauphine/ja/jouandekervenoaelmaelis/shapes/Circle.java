@@ -1,6 +1,8 @@
 package fr.dauphine.ja.jouandekervenoaelmaelis.shapes;
 
-public class Circle {
+import fr.dauphine.ja.jouandekervenoaelmaelis.view.CircleDrawer;
+
+public class Circle extends Shape{
 
 	private Point center;
 	private double radius;
@@ -13,6 +15,11 @@ public class Circle {
 	public Circle(Point center, double radius){
 		this.center = center;
 		this.radius = radius;
+	}
+	
+	public Circle(Circle c){
+		this.center = c.getCenter();
+		this.radius = c.getRadius();
 	}
 	
 	@Override
@@ -40,6 +47,14 @@ public class Circle {
 		this.center = center;
 	}
 	
+	public double getRadius(){
+		return this.radius;
+	}
+	
+	public void setRadius(double rad){
+		this.radius = rad;
+	}
+	
 	public double surface(){
 		return Math.PI*this.radius*this.radius;
 	}
@@ -62,9 +77,4 @@ public class Circle {
 		}
 		return false;
 	}
-	
-	public double getRadius(){
-		return this.radius;
-	}
-	
 }

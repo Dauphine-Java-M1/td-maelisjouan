@@ -1,5 +1,7 @@
 package fr.dauphine.ja.jouandekervenoaelmaelis.shapes;
 
+import fr.dauphine.ja.jouandekervenoaelmaelis.view.PointDrawer;
+
 import java.util.ArrayList;
 
 /**
@@ -7,12 +9,12 @@ import java.util.ArrayList;
  * class Point
  *
  */
-public class Point
-{
+public class Point extends Shape{
+	
 	private double x;
 	private double y;
 	private static int count;
-		
+	
 	public Point(){
 		this.x = 0.0;
 		this.y = 0.0;
@@ -23,6 +25,15 @@ public class Point
 		this.x = x;
 		this.y = y;
 		count++;
+	}
+	
+	/**
+	 * Copy of the Point p
+	 * @param p
+	 */
+	public Point(Point p){
+		this.x = p.getX();
+		this.y = p.getY();
 	}
 	
 	
@@ -43,12 +54,19 @@ public class Point
 	}
 	
 	/**
-	 * Copy of the Point p
-	 * @param p
+	 * Setter for x
+	 * @param x
 	 */
-	public Point(Point p){
-		this.x = p.getX();
-		this.y = p.getY();
+	public void setX(double x){
+		this.x = x;
+	}
+	
+	/**
+	 * Setter for y
+	 * @param y
+	 */
+	public void setY(double y){
+		this.y = y;
 	}
 	
 	@Override
@@ -81,7 +99,6 @@ public class Point
 	}*/
 	
 	public Point translate(double dx, double dy){
-		
 		return new Point(this.x+dx, this.y+dy);
 	}
 	
