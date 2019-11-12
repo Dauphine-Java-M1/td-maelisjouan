@@ -25,5 +25,4 @@ public class RingDrawer implements Drawer{
 		Drawer d2 = new CircleDrawer(c2);
 		d2.drawShape(g);
 	}
-
 }

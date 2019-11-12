@@ -24,4 +24,9 @@ public class PointDrawer implements Drawer{
 		g.drawLine(x-6, y, x+6, y);
 		g.drawLine(x, y-6, x, y+6);
 	}
+	
+	public String toString(){
+		return this.p.toString();
+	}
+	
 }

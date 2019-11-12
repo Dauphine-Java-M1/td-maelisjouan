@@ -1,6 +1,7 @@
 package fr.dauphine.ja.jouandekervenoaelmaelis.view;
 
 import fr.dauphine.ja.jouandekervenoaelmaelis.shapes.World;
+import fr.dauphine.ja.jouandekervenoaelmaelis.controller.MouseController;
 import fr.dauphine.ja.jouandekervenoaelmaelis.shapes.BrokenLine;
 import fr.dauphine.ja.jouandekervenoaelmaelis.shapes.Circle;
 import fr.dauphine.ja.jouandekervenoaelmaelis.shapes.Point;
@@ -12,12 +13,11 @@ import javax.swing.JFrame;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
 
 import java.util.Observable;
 import java.util.Observer;
 
-public class MyDisplay extends JPanel {
+public class MyDisplay extends JPanel implements Observer{
 
 	/**
 	 * 
@@ -42,12 +42,11 @@ public class MyDisplay extends JPanel {
 		}
 	}
 	
-
-	/*@Override //Observer
+	@Override
 	public void update(Observable o, Object arg) {
 		// TODO Auto-generated method stub
-		
-	}*/
+		repaint();
+	}
 	
 	public static void main(String[] args) {
 		World world = new World();
@@ -98,11 +97,12 @@ public class MyDisplay extends JPanel {
 		frame.setSize(new Dimension(900, 900));
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // what happens when the frame is closed 
+		frame.addMouseMotionListener(new MouseController(world)); // link with MouseController
 		
-		//world.addObserver(d);
+		world.addObserver(d);
 		
 		world.add(p);
-		world.add(bl1);
+		world.add(bl1); // this BrokenLine is a point but is not considered as a Point
 		world.add(bl2);
 		world.add(c1);
 		world.add(c2);
@@ -110,5 +110,8 @@ public class MyDisplay extends JPanel {
 		
 		System.out.println(d);
 		frame.add(d);
+		
+		
+		
 	}
 }

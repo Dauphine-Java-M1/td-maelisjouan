@@ -39,6 +39,10 @@ public class Circle extends Shape{
 		return new Circle(this.center.translate(dx, dy), this.radius);
 	}
 	
+	public void translate(Point p){
+		this.center.translate(p);
+	}
+	
 	public Point getCenter(){	
 		return this.center;
 	}
@@ -66,7 +70,7 @@ public class Circle extends Shape{
 		double xp = p.getX();
 		double y = this.center.getY();
 		double yp = p.getY();
-		return (((xp-x)*(xp-x) + (yp-y)*(yp-y)) <= this.radius);
+		return (((xp-x)*(xp-x) + (yp-y)*(yp-y)) <= this.radius*this.radius);
 	}
 	
 	public static boolean contains(Point p, Circle...circles){

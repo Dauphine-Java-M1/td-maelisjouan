@@ -19,6 +19,15 @@ public class Ring extends Shape {
 		this.internRadius = internRadius;
 	}
 	
+	public Ring translate(double dx, double dy){
+		Circle c = this.circ.translate(dx, dy);
+		return new Ring(c.getCenter(), c.getRadius(), this.internRadius);
+	}
+	
+	public void translate(Point p){
+		this.circ.translate(p);
+	}
+	
 	@Override
 	public boolean equals(Object o){
 		if (! (o instanceof Ring))
@@ -37,9 +46,9 @@ public class Ring extends Shape {
 			return false;
 		
 		Circle c = new Circle(this.circ.getCenter(), this.internRadius);
-		if(! (c.contains(p)))
+		if(! (c.contains(p))){
 			return true;
-		
+		}
 		return false;
 	}
 	

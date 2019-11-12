@@ -1,6 +1,7 @@
 package fr.dauphine.ja.jouandekervenoaelmaelis.shapes;
 
 import java.util.Observable;
+
 import java.util.ArrayList;
 
 
@@ -16,7 +17,7 @@ public class World extends Observable{
 	}
 	
 	public void changeWorld(){
-		
-		notifyObservers();
+		this.setChanged();
+		this.notifyObservers(shapes);
 	}
 }

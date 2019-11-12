@@ -12,7 +12,10 @@ public abstract class Shape {
 	}
 
 	public void setDrawer(Drawer drawer) {
-		System.out.println(drawer);
 		this.drawer = drawer;
 	}
+	
+	public abstract boolean contains(Point p);
+	
+	public abstract void translate(Point p);
 }

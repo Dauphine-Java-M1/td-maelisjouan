@@ -1,7 +1,5 @@
 package fr.dauphine.ja.jouandekervenoaelmaelis.shapes;
 
-import fr.dauphine.ja.jouandekervenoaelmaelis.view.PointDrawer;
-
 import java.util.ArrayList;
 
 /**
@@ -88,6 +86,18 @@ public class Point extends Shape{
 		return this.isSameAs(p);
 	}
 	
+	public boolean contains(Point p){
+		double eps = 10;  // area (square) where p is considered equal to the current point (this)
+		
+		if(this.equals(p))
+			return true;
+		
+		boolean c1 = Math.abs(this.x-p.getX()) < eps;
+		boolean c2 = Math.abs(this.y-p.getY()) < eps;
+		
+		return (c1 & c2);
+	}
+	
 	/*
 	public void translate(Point dx, Point dy){
 		double x1 = dx.getX();
@@ -102,6 +112,10 @@ public class Point extends Shape{
 		return new Point(this.x+dx, this.y+dy);
 	}
 	
+	public void translate(Point p){
+		this.x = p.getX();
+		this.y = p.getY();
+	}
 	
     public static void main( String[] args )
     {
