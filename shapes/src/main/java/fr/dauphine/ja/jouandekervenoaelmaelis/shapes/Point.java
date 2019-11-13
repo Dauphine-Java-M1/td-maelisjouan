@@ -87,7 +87,7 @@ public class Point extends Shape{
 	}
 	
 	public boolean contains(Point p){
-		double eps = 10;  // area (square) where p is considered equal to the current point (this)
+		double eps = 30;  // area (square) where p is considered equal to the current point (this)
 		
 		if(this.equals(p))
 			return true;
@@ -107,6 +107,13 @@ public class Point extends Shape{
 		this.x += x2-x1;
 		this.y += y2-y1;
 	}*/
+	
+	public double distance(Point p){  // determine the distance between this and p
+		double xp = p.getX();
+		double yp = p.getY();
+		return ((xp-this.x)*(xp-this.x) + (yp-this.y)*(yp-this.y));
+	}
+	
 	
 	public Point translate(double dx, double dy){
 		return new Point(this.x+dx, this.y+dy);

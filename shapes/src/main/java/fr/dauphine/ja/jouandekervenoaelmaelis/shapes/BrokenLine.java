@@ -20,7 +20,20 @@ public class BrokenLine extends Shape{
 	}
 	
 	public void translate(Point p){
+		Point c = new Point(-p.getX(), -p.getY());  // the aim is for c to be the closest point to p
 		
+		for(Point e : list){  // determining the closest point in the breakline to p
+			if(e.equals(p)){
+				c=e;
+				break;
+			}
+			else{
+				if(e.distance(p) < c.distance(p)){
+					c=e;
+				}
+			}
+		}
+		c.translate(p);  // retrieving the closest point to p and modifying its value
 	}
 	
 	@Override
@@ -36,12 +49,15 @@ public class BrokenLine extends Shape{
 		return list.get(index);
 	}
 	
+	
 	public boolean contains(Point p){
 		
-		if(list.contains(p))
-			return true;
+		for(Point e : list){
+			if(e.contains(p))
+				return true;
+		}
 		
-		double eps = 10;  // area around the BrokenLine where we consider that p belongs to this BrokenLine
+		/*double eps = 10;  // area around the BrokenLine where we consider that p belongs to this BrokenLine
 		
 		for(int i=0 ; i<list.size()-1 ; i++){  // testing whether p belongs to one of the lines between two consecutive points
 			Point p1 = list.get(i);
@@ -53,7 +69,8 @@ public class BrokenLine extends Shape{
 			if(Math.abs(a*p.getX()+b - p.getY()) < eps){//System.out.println(p1.toString() + p2.toString());
 				return true;
 			}
-		}
+		}*/
+		
 		return false;
 	}
 	

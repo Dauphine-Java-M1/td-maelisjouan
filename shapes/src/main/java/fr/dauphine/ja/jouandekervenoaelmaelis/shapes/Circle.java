@@ -66,11 +66,7 @@ public class Circle extends Shape{
 	public boolean contains(Point p){
 		if (this.center.equals(p))
 			return true;
-		double x = this.center.getX();
-		double xp = p.getX();
-		double y = this.center.getY();
-		double yp = p.getY();
-		return (((xp-x)*(xp-x) + (yp-y)*(yp-y)) <= this.radius*this.radius);
+		return (this.center.distance(p) <= this.radius*this.radius);
 	}
 	
 	public static boolean contains(Point p, Circle...circles){
