@@ -3,23 +3,35 @@ package fr.dauphine.ja.jouandekervenoaelmaelis.iterables;
 import java.util.Iterator;
 
 /**
- *
+ * A Panel object is an Iterable interval
  */
 public class Panel{
 	
-	public static Iterator<Integer> panel1(int a, int b){
-		if(a>b){
-			return panel1(b,a);
-		}
-		return new PanelIterator(a,b);
+	private int leftbound;
+	private int rightbound;
+	
+	
+	public Panel(int lb, int rb) throws IllegalArgumentException{
+		if (lb > rb)
+		       throw new IllegalArgumentException("the right bound of an interval is supposed to be greater or equal to its left bound");
+		
+		this.leftbound = lb;
+		this.rightbound = rb;
+	}
+	
+	
+	
+	public static Iterator<Integer> panel1(Panel p){
+		return new PanelIterator(p.leftbound, p.rightbound);
 	}
 	
 	
 	public static void main( String[] args ){
 	
-        Iterator<Integer> it = panel1(1,5);
+		Panel p = new Panel(1, 5);
+        Iterator<Integer> it = panel1(p);
         for(;it.hasNext();){
-        	System.out.println(it.next());
+        	System.out.println(it.next());  // display 1 2 3 4 5
         }
     }
 }
