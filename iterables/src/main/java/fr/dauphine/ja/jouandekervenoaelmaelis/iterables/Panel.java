@@ -10,6 +10,8 @@ public class Panel{
 	private int leftbound;
 	private int rightbound;
 	
+	private int[] table;
+	
 	
 	public Panel(int lb, int rb) throws IllegalArgumentException{
 		if (lb > rb)
@@ -19,14 +21,21 @@ public class Panel{
 		this.rightbound = rb;
 	}
 	
-	
-	
-	public static Iterator<Integer> panel1(Panel p){
-		return new PanelIterator(p.leftbound, p.rightbound);
+	public void filltable(){  // fill table with the values from the leftbound to the rightbound (both included)
+		table = new int[this.rightbound-this.leftbound+1];
+		for(int i=0 ; i<table.length; i++){
+			table[i] = i+this.leftbound;
+		}
 	}
 	
 	
-	public static void main( String[] args ){
+	public static Iterator<Integer> panel1(Panel p){
+		p.filltable();
+		return new PanelIterator(p.table);
+	}
+	
+	
+	public static void main(String[] args){
 	
 		Panel p = new Panel(1, 5);
         Iterator<Integer> it = panel1(p);

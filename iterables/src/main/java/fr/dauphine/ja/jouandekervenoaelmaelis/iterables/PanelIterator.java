@@ -4,32 +4,17 @@ import java.util.Iterator;
 
 
 /**
- * Iterator for a Panel object
+ * Iterator that iterates on a table of integer (from the beginning to the end of the table)
  *
  */
 public class PanelIterator implements Iterator<Integer>{
 
-	private int[] table;
 	private int index;
+	private int[] table;
 	
-	
-	/**
-	 * 
-	 * @param a
-	 * @param b
-	 */
-	public PanelIterator(int a, int b){
+	public PanelIterator(int[] table){
 		index = 0;
-		try{
-			table = new int[b-a+1];
-		
-			for(int i=0 ; i<table.length; i++){
-				table[i] = i+a;
-			}
-		}catch(NegativeArraySizeException e){
-			throw new NegativeArraySizeException("PanelIterator was constructed for a Panel object ie such that a<b");
-			
-		}
+		this.table = table;
 	}
 	
 	@Override
