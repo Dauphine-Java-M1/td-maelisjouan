@@ -8,7 +8,7 @@ public class BrokenLine extends Shape{
 	
 	
 	public BrokenLine(){
-		list = new LinkedList();
+		list = new LinkedList<Point>();
 	}
 	
 	public BrokenLine translate(double dx, double dy){
