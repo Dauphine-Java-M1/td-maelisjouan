@@ -52,14 +52,14 @@ public class Panel implements Iterable<Integer>{
 	public static void main(String[] args){
 	
 		Panel p = new Panel(1, 5);
-        Iterator<Integer> it = panel1(p);
+		/*Iterator<Integer> it = panel1(p);
         
-        /*for(;it.hasNext();){
+        for(;it.hasNext();){
         	System.out.println(it.next());  // display 1 2 3 4 5
         }*/
         
         for(int i:panel2(p)){
-        	System.out.println(it.next());  // display 1 2 3 4 5
+        	System.out.println(i);  // display 1 2 3 4 5
         }
         
     }
