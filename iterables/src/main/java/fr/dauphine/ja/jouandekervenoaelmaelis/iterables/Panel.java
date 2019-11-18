@@ -5,7 +5,7 @@ import java.util.Iterator;
 /**
  * A Panel object is an Iterable interval
  */
-public class Panel{
+public class Panel implements Iterable<Integer>{
 	
 	private int leftbound;
 	private int rightbound;
@@ -43,6 +43,9 @@ public class Panel{
 		
 	}	
 	
+	public static Iterable<Integer> panel2(Panel p){
+		return p;
+	}
 	
 	
 	
@@ -51,11 +54,19 @@ public class Panel{
 		Panel p = new Panel(1, 5);
         Iterator<Integer> it = panel1(p);
         
-        for(;it.hasNext();){
+        /*for(;it.hasNext();){
+        	System.out.println(it.next());  // display 1 2 3 4 5
+        }*/
+        
+        for(int i:panel2(p)){
         	System.out.println(it.next());  // display 1 2 3 4 5
         }
         
     }
 
-	
+	@Override
+	public Iterator<Integer> iterator() {
+		// TODO Auto-generated method stub
+		return new PanelIterator(this.leftbound, this.rightbound);
+	}
 }
