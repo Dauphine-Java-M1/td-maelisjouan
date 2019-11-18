@@ -10,25 +10,23 @@ import java.util.Iterator;
 public class PanelIterator implements Iterator<Integer>{
 
 	private int index;
-	private int[] table;
+	private int ub;
 	
-	public PanelIterator(int[] table){
-		index = 0;
-		this.table = table;
+	public PanelIterator(int lb, int ub){
+		index = lb;
+		this.ub = ub;
 	}
 	
 	@Override
 	public boolean hasNext() {
 		// TODO Auto-generated method stub
-		return index<table.length;
+		return index<=this.ub;
 	}
 
 	@Override
 	public Integer next() {
 		// TODO Auto-generated method stub
-		int i = table[index];
-		index++;
-		return i;
+		return index++;
 	}
 
 }
